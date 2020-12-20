@@ -7,10 +7,10 @@ public class PlatfromScript : MonoBehaviour {
     public float bound_Y = 6f;
 
     public bool is_Moving_Platfrom_Left,
-    is_Moving_Platfrom_Right,
-    is_Breakable_Platfrom,
-    is_Spike_Platfrom,
-    is_Platfrom;
+           is_Moving_Platfrom_Right,
+           is_Breakable_Platfrom,
+           is_Spike_Platfrom,
+           is_Platfrom;
 
     private Animator anim;
 
@@ -60,7 +60,7 @@ public class PlatfromScript : MonoBehaviour {
                 GameManager.instance.RestartGame();
             }
         }
-    } // 
+    } //
 
 
     void OnCollisionEnter2D(Collision2D target)
