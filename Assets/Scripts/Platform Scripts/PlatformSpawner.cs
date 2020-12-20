@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlatformSpawner : MonoBehaviour
 {
+    //why all these are public? why such naming convention?
     public GameObject platform_Prefab;
     public GameObject spike_Platform_Prefab;
     public GameObject[] moving_Platforms;
@@ -27,7 +28,8 @@ public class PlatformSpawner : MonoBehaviour
     {
         SpawnPlatforms();
     }
-
+    //too big mentod. can be split into separate ones to follow SRP
+    //also script can be further split as here I see - Calculation when to spawn, what to spawn and spawn itelf - 3 responsibilities in a single script
     void SpawnPlatforms()
     {
         current_Platform_Spawn_Timer += Time.deltaTime;
@@ -70,7 +72,7 @@ public class PlatformSpawner : MonoBehaviour
                 if (Random.Range(0, 2) > 0)
                 {
                     //generate regular platform 
-                    newPlatform = Instantiate(platform_Prefab, temp, Quaternion.identity);
+                    newPlatform = Instantiate(platform_Prefab, temp, Quaternion.identity); //same as line 47, 56 and 92 - repetetive code - not DRY
                 }
                 else
                 {
