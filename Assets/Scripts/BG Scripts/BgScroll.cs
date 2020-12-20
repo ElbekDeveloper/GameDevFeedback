@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class BgScroll : MonoBehaviour
 {
+    //why public? should it be accessed by other scripts?
+    //strange naming convention for code stile and not consistent
     public float scroll_Speed = 0.3f;
     private MeshRenderer mesh_Renderer;
     private string MainTex = "_MainTex";
-
+    
+    //access modifiers?
     void Awake()
     {
         mesh_Renderer = GetComponent<MeshRenderer>();
