@@ -9,7 +9,7 @@ public class BgScroll : MonoBehaviour
     public float scroll_Speed = 0.3f;
     private MeshRenderer mesh_Renderer;
     private string MainTex = "_MainTex";
-    
+
     //access modifiers?
     void Awake()
     {
