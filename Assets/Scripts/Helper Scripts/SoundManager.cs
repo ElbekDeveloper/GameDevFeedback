@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
             instance = this;
         }
     }
-
+    //name of method should be verb, not noun
     public void LandSound()
     {
         soundFX.clip = landClip;
