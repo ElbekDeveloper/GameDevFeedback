@@ -50,56 +50,56 @@ public class PlatformSpawner : MonoBehaviour
             }
             else if (platform_Spawn_Count == 2)
             {
-                //randomize 
+                //randomize
                 if (Random.Range(0,2)> 0)
                 {
-                    //generate regular platform 
+                    //generate regular platform
                     newPlatform = Instantiate(platform_Prefab, temp, Quaternion.identity);
                 }
                 else
                 {
                     //or new moving platfrom
                     newPlatform = Instantiate(
-                        moving_Platforms[Random.Range(0, moving_Platforms.Length)],
-                        temp,
-                        Quaternion.identity
-                        );
+                                      moving_Platforms[Random.Range(0, moving_Platforms.Length)],
+                                      temp,
+                                      Quaternion.identity
+                                  );
                 }
             }
             else if (platform_Spawn_Count == 3)
             {
-                //randomize 
+                //randomize
                 if (Random.Range(0, 2) > 0)
                 {
-                    //generate regular platform 
+                    //generate regular platform
                     newPlatform = Instantiate(platform_Prefab, temp, Quaternion.identity); //same as line 47, 56 and 92 - repetetive code - not DRY
                 }
                 else
                 {
                     //or new spike platform
                     newPlatform = Instantiate(
-                        spike_Platform_Prefab,
-                        temp,
-                        Quaternion.identity
-                        );
+                                      spike_Platform_Prefab,
+                                      temp,
+                                      Quaternion.identity
+                                  );
                 }
             }
             else if (platform_Spawn_Count == 4)
             {
-                //randomize 
+                //randomize
                 if (Random.Range(0, 2) > 0)
                 {
-                    //generate regular platform 
+                    //generate regular platform
                     newPlatform = Instantiate(platform_Prefab, temp, Quaternion.identity);
                 }
                 else
                 {
                     //or new spike platform
                     newPlatform = Instantiate(
-                        breakable_Platform,
-                        temp,
-                        Quaternion.identity
-                        );
+                                      breakable_Platform,
+                                      temp,
+                                      Quaternion.identity
+                                  );
                 }
                 //reset the count to 0
                 platform_Spawn_Count = 0;
