@@ -2,47 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
-{
-    public static SoundManager instance;
-    [SerializeField]
-    private AudioSource soundFX;
-    [SerializeField]
-    private AudioClip landClip, deathClip, iceBreakClip, gameOverClip;
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
+public class SoundManager : MonoBehaviour {
+  public static SoundManager instance;
+  [SerializeField]
+  private AudioSource soundFX;
+  [SerializeField]
+  private AudioClip landClip,
+      deathClip, iceBreakClip, gameOverClip;
+  void Awake() {
+    if (instance == null) {
+      instance = this;
     }
-    //name of method should be verb, not noun
-    public void LandSound()
-    {
-        soundFX.clip = landClip;
-        soundFX.Play();
-    }
+  }
+  // name of method should be verb, not noun
+  public void LandSound() {
+    soundFX.clip = landClip;
+    soundFX.Play();
+  }
 
-    public void IceBreakSound()
-    {
-        soundFX.clip = iceBreakClip;
-        soundFX.Play();
-    }
+  public void IceBreakSound() {
+    soundFX.clip = iceBreakClip;
+    soundFX.Play();
+  }
 
-    public void DeathSound()
-    {
-        soundFX.clip = deathClip;
-        soundFX.Play();
-    }
+  public void DeathSound() {
+    soundFX.clip = deathClip;
+    soundFX.Play();
+  }
 
-    public void GameOverSound()
-    {
-        soundFX.clip = gameOverClip;
-        soundFX.Play();
-    }
-
-
-
-
-
+  public void GameOverSound() {
+    soundFX.clip = gameOverClip;
+    soundFX.Play();
+  }
 }
