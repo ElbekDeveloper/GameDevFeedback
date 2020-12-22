@@ -50,7 +50,7 @@ public class PlatfromScript : MonoBehaviour {
       if (is_Spike_Platfrom) {
         target.transform.position = new Vector2(1000f, 1000f);
         SoundManager.Instance.PlayGameOverSound();
-        GameManager.instance.RestartGame();
+        GameManager.Instance.RestartGame();
       }
     }
   } //

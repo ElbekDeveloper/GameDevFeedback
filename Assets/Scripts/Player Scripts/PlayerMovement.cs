@@ -9,30 +9,32 @@ public class PlayerMovement : MonoBehaviour
     {
         _myBody = GetComponent<Rigidbody2D>();
     }
- 
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+        float horizontalMovement = GetHorizontalInput();
+        Move(horizontalMovement);
     }
 
-
-
-    void Move()
+    private float GetHorizontalInput()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0f)
+        return Input.GetAxisRaw("Horizontal");
+    }
+
+    void Move(float horizontalPosition)
+    {
+        if (horizontalPosition > 0f)
         {
             _myBody.velocity = new Vector2(_moveSpeed, _myBody.velocity.y);
         }
 
-        if (Input.GetAxisRaw("Horizontal") < 0f)
+        if(horizontalPosition < 0f)
         {
             _myBody.velocity = new Vector2(-_moveSpeed, _myBody.velocity.y);
         }
 
-
-
-    }//Move
+    } //Move
 
 
 

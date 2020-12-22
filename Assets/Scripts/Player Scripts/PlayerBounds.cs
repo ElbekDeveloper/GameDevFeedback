@@ -36,7 +36,7 @@ public class PlayerBounds : MonoBehaviour
                 out_Of_Bounds = true;
 
                 SoundManager.Instance.PlayDeathSound();
-                GameManager.instance.RestartGame();
+                GameManager.Instance.RestartGame();
             }
         }
     } //check bounds
@@ -47,7 +47,7 @@ public class PlayerBounds : MonoBehaviour
              {
                 transform.position = new Vector2(1000f, 1000f);
                 SoundManager.Instance.PlayDeathSound();
-                GameManager.instance.RestartGame(); 
+                GameManager.Instance.RestartGame(); 
              }
         }
 
