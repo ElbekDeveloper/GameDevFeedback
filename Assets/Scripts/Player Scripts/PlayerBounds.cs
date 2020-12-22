@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerBounds : MonoBehaviour
 {
 
     public float _minX = -2.6f, _maxX = 2.6f, _minY = -8f;
-    private bool out_Of_Bounds ;
+    private bool _outOfBounds ;
     // Update is called once per frame
     void Update()
     {
@@ -31,9 +29,9 @@ public class PlayerBounds : MonoBehaviour
 
         if (temp.y <= _minY)
         {
-            if (out_Of_Bounds == false)
+            if (_outOfBounds == false)
             {
-                out_Of_Bounds = true;
+                _outOfBounds = true;
 
                 SoundManager.GetInstance().PlayDeathSound();
                 GameManager.GetInstance().RestartGame();
@@ -50,9 +48,5 @@ public class PlayerBounds : MonoBehaviour
             GameManager.GetInstance().RestartGame(); 
              }
         }
-
-
-
-
 
 }//class
