@@ -969,9 +969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29437792e873574aa470771c5988d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min_X: -2.6
-  max_X: 2.6
-  min_Y: -5.6
+  _minX: -2.6
+  _maxX: 2.6
+  _minY: -5.6
 --- !u!1 &1265631818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,18 +1705,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2307ff40ac930de4e83f35d635e0ff49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform_Prefab: {fileID: 6595465625059961834, guid: 5085680efc2979b41aa434cfbfe9278a,
+  _platformPrefab: {fileID: 6595465625059961834, guid: 5085680efc2979b41aa434cfbfe9278a,
     type: 3}
-  spike_Platform_Prefab: {fileID: 2048679076343304191, guid: 7906a9b04add3dd45968ab25864a9550,
+  _spikyPlatfromPrefab: {fileID: 2048679076343304191, guid: 7906a9b04add3dd45968ab25864a9550,
     type: 3}
-  moving_Platforms:
+  _movingPlatforms:
   - {fileID: 2787903300960818277, guid: 688a4d216e6bdb545bb1ae694cd13177, type: 3}
   - {fileID: 2701337443628522569, guid: db4fa823aa8a5cf428697b383e47d0e7, type: 3}
-  breakable_Platform: {fileID: 1063175162848788681, guid: 45ca698b46a183442b0587e16c7c9981,
+  _breakablePlatform: {fileID: 1063175162848788681, guid: 45ca698b46a183442b0587e16c7c9981,
     type: 3}
-  platform_Spawn_Timer: 1.8
-  min_X: -2
-  max_X: 2
 --- !u!1 &1789323122
 GameObject:
   m_ObjectHideFlags: 0

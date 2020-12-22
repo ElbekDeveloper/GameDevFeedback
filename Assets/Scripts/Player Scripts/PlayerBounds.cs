@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBounds : MonoBehaviour
 {
 
-    public float min_X = -2.6f, max_X = 2.6f, min_Y = -5.6f;
+    public float _minX = -2.6f, _maxX = 2.6f, _minY = -5.6f;
     private bool out_Of_Bounds ;
     // Update is called once per frame
     void Update()
@@ -17,19 +17,19 @@ public class PlayerBounds : MonoBehaviour
     {
         Vector2 temp = transform.position;
 
-        if (temp.x > max_X)
+        if (temp.x > _maxX)
         {
-            temp.x = max_X;
+            temp.x = _maxX;
         }
 
-        if (temp.x < min_X)
+        if (temp.x < _minX)
         {
-            temp.x = min_X;
+            temp.x = _minX;
         }
 
         transform.position = temp;
 
-        if (temp.y <= min_X)
+        if (temp.y <= _minX)
         {
             if (out_Of_Bounds == false)
             {
