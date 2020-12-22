@@ -20,9 +20,7 @@ public class PlatfromScript : MonoBehaviour {
 
   // Update is called once per frame
   void Update() { Move(); }
-  // moving every single platform is not a good idea. 100 platforms - 100 calls
-  // to update - performance not efficient. better having a single object that is
-  // moving and it has platform objs as children
+
   void Move() {
     Vector2 temp = transform.position;
     temp.y += _moveSpeed * Time.deltaTime;
@@ -33,21 +31,17 @@ public class PlatfromScript : MonoBehaviour {
     }
   } // move
 
-  void BreakableDeactivate() {
-    Invoke("DeactivateGameObject", 0.3f); // magic strings is bad idea, if you
-                                          // rename method - will not work
+  void DeactivateBreakablePlatform() {
+    Invoke("DeactivateGameObject", 0.3f); 
   }
 
   void DeactivateGameObject() {
-    SoundManager.GetInstance()
-        .PlayIceBreakSound(); // singletons used in that way is also not good for
-                          // architecture - makes your components strongly
-                          // dependant from each other
+    SoundManager.GetInstance().PlayIceBreakSound(); 
     gameObject.SetActive(false);
   }
 
   void OnTriggerEnter2D(Collider2D target) {
-    if (target.tag == "Player") {
+    if (target.tag == TagList.Player) {
       if (_isSpikePlatfrom) {
         target.transform.position = new Vector2(1000f, 1000f);
         SoundManager.GetInstance().PlayGameOverSound();
@@ -57,7 +51,7 @@ public class PlatfromScript : MonoBehaviour {
   } //
 
   void OnCollisionEnter2D(Collision2D target) {
-    if (target.gameObject.tag == "Player") {
+    if (target.gameObject.tag == TagList.Player) {
       if (_isBreakablePlatfrom) {
         SoundManager.GetInstance().PlayLandingSound();
         _animator.Play("Break");
@@ -66,10 +60,10 @@ public class PlatfromScript : MonoBehaviour {
         SoundManager.GetInstance().PlayLandingSound();
       }
     }
-  } //
+  } // 
 
   void OnCollisionStay2D(Collision2D target) {
-    if (target.gameObject.tag == "Player") {
+    if (target.gameObject.tag ==TagList.Player) {
       if (_isMovingPlatfromLeft) {
         target.gameObject.GetComponent<PlayerMovement>().PlatformMove(-1f);
       }

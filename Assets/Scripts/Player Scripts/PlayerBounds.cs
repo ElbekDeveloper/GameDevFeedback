@@ -41,11 +41,11 @@ public class PlayerBounds : MonoBehaviour
 
         void OnTriggerEnter2D(Collider2D target)
         {
-             if (target.tag == "TopSpike")
+             if (target.tag == TagList.TopSpike)
              {
                 transform.position = new Vector2(1000f, 1000f);
                 SoundManager.GetInstance().PlayDeathSound();
-            GameManager.GetInstance().RestartGame(); 
+                GameManager.GetInstance().RestartGame(); 
              }
         }
 
