@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlatfromScript : MonoBehaviour {
-  public float move_Speed = 2f;
-  public float bound_Y = 6f;
+  private float _moveSpeed = 2f;
+  private float _boundY = 6f;
 
-  public bool is_Moving_Platfrom_Left, is_Moving_Platfrom_Right,
-      is_Breakable_Platfrom, is_Spike_Platfrom, is_Platfrom;
+  private bool _isMovingPlatfromLeft, 
+                      _isMovingPlatfromRight,
+                      _isBreakablePlatfrom, 
+                      _isSpikePlatfrom,
+                      _isPlatfrom;
 
-  private Animator anim;
+  private Animator _animator;
 
   void Awake() {
-    if (is_Breakable_Platfrom == true) {
-      anim = GetComponent<Animator>();
+    if (_isBreakablePlatfrom == true) {
+      _animator = GetComponent<Animator>();
     }
   }
 
@@ -24,10 +25,10 @@ public class PlatfromScript : MonoBehaviour {
   // moving and it has platform objs as children
   void Move() {
     Vector2 temp = transform.position;
-    temp.y += move_Speed * Time.deltaTime;
+    temp.y += _moveSpeed * Time.deltaTime;
     transform.position = temp;
 
-    if (temp.y >= bound_Y) {
+    if (temp.y >= _boundY) {
       gameObject.SetActive(false);
     }
   } // move
@@ -38,7 +39,7 @@ public class PlatfromScript : MonoBehaviour {
   }
 
   void DeactivateGameObject() {
-    SoundManager.Instance
+    SoundManager.GetInstance()
         .PlayIceBreakSound(); // singletons used in that way is also not good for
                           // architecture - makes your components strongly
                           // dependant from each other
@@ -47,32 +48,32 @@ public class PlatfromScript : MonoBehaviour {
 
   void OnTriggerEnter2D(Collider2D target) {
     if (target.tag == "Player") {
-      if (is_Spike_Platfrom) {
+      if (_isSpikePlatfrom) {
         target.transform.position = new Vector2(1000f, 1000f);
-        SoundManager.Instance.PlayGameOverSound();
-        GameManager.Instance.RestartGame();
+        SoundManager.GetInstance().PlayGameOverSound();
+        GameManager.GetInstance().RestartGame();
       }
     }
   } //
 
   void OnCollisionEnter2D(Collision2D target) {
     if (target.gameObject.tag == "Player") {
-      if (is_Breakable_Platfrom) {
-        SoundManager.Instance.PlayLandingSound();
-        anim.Play("Break");
+      if (_isBreakablePlatfrom) {
+        SoundManager.GetInstance().PlayLandingSound();
+        _animator.Play("Break");
       }
-      if (is_Platfrom) {
-        SoundManager.Instance.PlayLandingSound();
+      if (_isPlatfrom) {
+        SoundManager.GetInstance().PlayLandingSound();
       }
     }
   } //
 
   void OnCollisionStay2D(Collision2D target) {
     if (target.gameObject.tag == "Player") {
-      if (is_Moving_Platfrom_Left) {
+      if (_isMovingPlatfromLeft) {
         target.gameObject.GetComponent<PlayerMovement>().PlatformMove(-1f);
       }
-      if (is_Moving_Platfrom_Right) {
+      if (_isMovingPlatfromRight) {
         target.gameObject.GetComponent<PlayerMovement>().PlatformMove(1f);
       }
     }

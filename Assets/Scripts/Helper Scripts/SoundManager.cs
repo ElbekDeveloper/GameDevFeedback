@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
-  public static SoundManager Instance;
+  private static SoundManager _instance;
   [SerializeField]
   private AudioSource _soundFX;
   [SerializeField]
@@ -10,10 +10,20 @@ public class SoundManager : MonoBehaviour {
                                _iceBreakClip, 
                                _gameOverClip;
   void Awake() {
-    if (Instance == null) {
-      Instance = this;
-    }
+        if (_instance == null)
+        {
+            _instance = this;
+        }
   }
+
+    public static SoundManager GetInstance()
+    {
+        if (_instance == null)
+        {
+            _instance = new SoundManager();
+        }
+        return _instance;
+    }
   // name of method should be verb, not noun
   public void PlayLandingSound() {
     _soundFX.clip = _landClip;

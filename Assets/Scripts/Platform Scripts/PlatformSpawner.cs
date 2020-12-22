@@ -25,10 +25,6 @@ public class PlatformSpawner : MonoBehaviour {
   void Update() {
         Spawn();
    }
-  // too big mentod. can be split into separate ones to follow SRP
-  // also script can be further split as here I see - Calculation when to spawn,
-  // what to spawn and spawn itelf - 3 responsibilities in a single script
-  
    
   protected void IncrementTimer()
     {
@@ -38,7 +34,7 @@ public class PlatformSpawner : MonoBehaviour {
     {
         _currentPlatformSpawnTimer = 0;
     }
-    //Implement facade dp
+
   void Spawn() {
         IncrementTimer();
 
@@ -79,7 +75,7 @@ public class PlatformSpawner : MonoBehaviour {
           // generate regular platform
           newPlatform = Spawner.SpawnPlatform(_platformPrefab, temp);
         } else {
-          // or new breakable platform
+          // new breakable platform
           newPlatform = Spawner.SpawnPlatform(_breakablePlatform, temp);
                 }
         // reset the count to 0

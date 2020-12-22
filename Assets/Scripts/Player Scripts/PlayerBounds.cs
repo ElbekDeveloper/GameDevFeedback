@@ -29,14 +29,14 @@ public class PlayerBounds : MonoBehaviour
 
         transform.position = temp;
 
-        if (temp.y <= _minX)
+        if (temp.y <= _minY)
         {
             if (out_Of_Bounds == false)
             {
                 out_Of_Bounds = true;
 
-                SoundManager.Instance.PlayDeathSound();
-                GameManager.Instance.RestartGame();
+                SoundManager.GetInstance().PlayDeathSound();
+                GameManager.GetInstance().RestartGame();
             }
         }
     } //check bounds
@@ -46,8 +46,8 @@ public class PlayerBounds : MonoBehaviour
              if (target.tag == "TopSpike")
              {
                 transform.position = new Vector2(1000f, 1000f);
-                SoundManager.Instance.PlayDeathSound();
-                GameManager.Instance.RestartGame(); 
+                SoundManager.GetInstance().PlayDeathSound();
+            GameManager.GetInstance().RestartGame(); 
              }
         }
 
