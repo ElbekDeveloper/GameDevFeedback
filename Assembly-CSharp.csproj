@@ -58,12 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BG Scripts\BgScroll.cs" />
+    <Compile Include="Assets\Scripts\Event Scripts\FloatEvent.cs" />
     <Compile Include="Assets\Scripts\Helper Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Helper Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Platform Scripts\PlatformSpawner.cs" />
     <Compile Include="Assets\Scripts\Platform Scripts\PlatfromScript.cs" />
     <Compile Include="Assets\Scripts\Platform Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\Platform Scripts\Timer.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\InputNotifier.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\Mover.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerBounds.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerMovement.cs" />
     <Reference Include="UnityEngine">

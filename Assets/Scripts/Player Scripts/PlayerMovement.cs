@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float horizontalMovement = GetHorizontalInput();
-        Move(horizontalMovement);
+        //float horizontalMovement = GetHorizontalInput();
+        //Move(horizontalMovement);
     }
 
     private float GetHorizontalInput()
