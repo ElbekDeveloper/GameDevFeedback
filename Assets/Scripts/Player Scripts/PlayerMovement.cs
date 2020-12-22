@@ -1,18 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D my_Body;
-    public float move_Speed = 2f;
+    private Rigidbody2D _myBody;
+    private float _moveSpeed = 2f;
 
     void Awake()
     {
-        my_Body = GetComponent<Rigidbody2D>();
+        _myBody = GetComponent<Rigidbody2D>();
     }
  
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -25,12 +22,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetAxisRaw("Horizontal") > 0f)
         {
-            my_Body.velocity = new Vector2(move_Speed, my_Body.velocity.y);
+            _myBody.velocity = new Vector2(_moveSpeed, _myBody.velocity.y);
         }
 
         if (Input.GetAxisRaw("Horizontal") < 0f)
         {
-            my_Body.velocity = new Vector2(-move_Speed, my_Body.velocity.y);
+            _myBody.velocity = new Vector2(-_moveSpeed, _myBody.velocity.y);
         }
 
 
@@ -42,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlatformMove(float x)
     {
-        my_Body.velocity = new Vector2(x, my_Body.velocity.y);
+        _myBody.velocity = new Vector2(x, _myBody.velocity.y);
     }
 }// class
 

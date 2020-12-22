@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
 public class PlatformSpawner : MonoBehaviour {
-  // why all these are public? why such naming convention?
-  //done
+  
     [SerializeField]
     private GameObject _platformPrefab;
     [SerializeField]
@@ -24,7 +23,7 @@ public class PlatformSpawner : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-        FacadeSpawner();
+        Spawn();
    }
   // too big mentod. can be split into separate ones to follow SRP
   // also script can be further split as here I see - Calculation when to spawn,
@@ -40,7 +39,7 @@ public class PlatformSpawner : MonoBehaviour {
         _currentPlatformSpawnTimer = 0;
     }
     //Implement facade dp
-  void FacadeSpawner() {
+  void Spawn() {
         IncrementTimer();
 
     if (_currentPlatformSpawnTimer >= _platformSpawnTimer) {

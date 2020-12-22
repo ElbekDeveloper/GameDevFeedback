@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBounds : MonoBehaviour
 {
 
-    public float _minX = -2.6f, _maxX = 2.6f, _minY = -5.6f;
+    public float _minX = -2.6f, _maxX = 2.6f, _minY = -8f;
     private bool out_Of_Bounds ;
     // Update is called once per frame
     void Update()
@@ -35,7 +35,7 @@ public class PlayerBounds : MonoBehaviour
             {
                 out_Of_Bounds = true;
 
-                SoundManager.instance.DeathSound();
+                SoundManager.Instance.PlayDeathSound();
                 GameManager.instance.RestartGame();
             }
         }
@@ -46,7 +46,7 @@ public class PlayerBounds : MonoBehaviour
              if (target.tag == "TopSpike")
              {
                 transform.position = new Vector2(1000f, 1000f);
-                SoundManager.instance.DeathSound();
+                SoundManager.Instance.PlayDeathSound();
                 GameManager.instance.RestartGame(); 
              }
         }

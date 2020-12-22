@@ -38,8 +38,8 @@ public class PlatfromScript : MonoBehaviour {
   }
 
   void DeactivateGameObject() {
-    SoundManager.instance
-        .IceBreakSound(); // singletons used in that way is also not good for
+    SoundManager.Instance
+        .PlayIceBreakSound(); // singletons used in that way is also not good for
                           // architecture - makes your components strongly
                           // dependant from each other
     gameObject.SetActive(false);
@@ -49,7 +49,7 @@ public class PlatfromScript : MonoBehaviour {
     if (target.tag == "Player") {
       if (is_Spike_Platfrom) {
         target.transform.position = new Vector2(1000f, 1000f);
-        SoundManager.instance.GameOverSound();
+        SoundManager.Instance.PlayGameOverSound();
         GameManager.instance.RestartGame();
       }
     }
@@ -58,11 +58,11 @@ public class PlatfromScript : MonoBehaviour {
   void OnCollisionEnter2D(Collision2D target) {
     if (target.gameObject.tag == "Player") {
       if (is_Breakable_Platfrom) {
-        SoundManager.instance.LandSound();
+        SoundManager.Instance.PlayLandingSound();
         anim.Play("Break");
       }
       if (is_Platfrom) {
-        SoundManager.instance.LandSound();
+        SoundManager.Instance.PlayLandingSound();
       }
     }
   } //
